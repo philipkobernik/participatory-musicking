@@ -14,3 +14,8 @@ const Layout = props => (
 );
 
 export default Layout;
+
+//class Layout extends Component {
+  //render() {
+  //}
+//}

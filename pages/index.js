@@ -62,14 +62,17 @@ import Layout from '../components/MyLayout';
 import Link from 'next/link';
 import fetch from 'isomorphic-unfetch';
 
+//const members = ['jennifer', 'sonia', 'sam', 'jungah', 'cy', 'mark', 'raphael', 'misha', 'tobias', 'ari', 'xindi'].sort()
+const members = ['ocean', 'davina', 'stefanie', 'madi', 'grace', 'sam', 'maritza', 'mikhail', 'ashley', 'maya', 'oswaldo', 'breana', 'max', 'jiahui', 'maiqi', 'crystal', 'michelle', 'mckenna', 'yichen', 'bristol'].sort()
+
 const Index = props => (
   <Layout>
-    <h1>Batman TV Shows</h1>
+    <h1>Participatory Musicking</h1>
     <ul>
-      {props.shows.map(show => (
-        <li key={show.id}>
-          <Link href="/p/[id]" as={`/p/${show.id}`}>
-            <a>{show.name}</a>
+      {members.map(name => (
+        <li key={name}>
+          <Link href="/players/[user]" as={`/players/${name}`}>
+            <a>{name}</a>
           </Link>
         </li>
       ))}
@@ -77,15 +80,15 @@ const Index = props => (
   </Layout>
 );
 
-Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
+//Index.getInitialProps = async function() {
+  //const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+  //const data = await res.json();
 
-  console.log(`Show data fetched. Count: ${data.length}`);
+  //console.log(`Show data fetched. Count: ${data.length}`);
 
-  return {
-    shows: data.map(entry => entry.show)
-  };
-};
+  //return {
+    //shows: data.map(entry => entry.show)
+  //};
+//};
 
 export default Index;
