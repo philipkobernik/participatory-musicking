@@ -11,14 +11,11 @@ var firebaseConfig = {
   appId: "1:245966990775:web:bfa500a1c4176c04674c32"
 };
 // Initialize Firebase
-console.log('init the FB!!');
 var db;
 if(firebase.apps.length < 1) {
   db = firebase.initializeApp(firebaseConfig).database();
 } else {
   db = firebase.database();
 }
-//var ref = firebase.database().ref();
-
 
 export default db;

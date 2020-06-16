@@ -17,15 +17,15 @@ const notes = {
   'mikhail': "size of the reverb space. think of it like a cave. you are collaborating with maritza on the reverb effect.",
   'ashley': "pitch of the voice-clone track. recommend starting at 0.5 and exploring both slow and fast changes. you will only hear changes if oswaldo has the voiceclone volume up/audible",
   'maya': "your slider controls the shift mode of the voice-clone track. there are three modes: 0: pitch transpose, 0.5: auto-tune, 1.0: robot voice. you will only hear changes if oswaldo has the voice-clone volume up/audible",
-  'oswaldo': "volume of the voice-clone track. ashley and maya are controlling settings.", 
+  'oswaldo': "volume of the voice-clone track. ashley and maya are controlling settings.",
   'breana': "you control the panning (left/center/right) of the voice-clone track. you will only hear changes if oswaldo has the voice-clone volume up/audible",
-  'max': "you control track-level compression. recommend starting at 0.0.", 
-  'jiahui': "your control is disabled at this point because you were not participating on Friday. Sorry!", 
-  'maiqi': "you control part of the pitch of the synth drone-- you and crystal are both controlling pitch... if your sliders are close in value, the pitch will be more even-- otherwise there will be rhthmic 'beating' sounds in the synth. you will only hear changes if mckenna has the synth volume up.", 
-  'crystal': "you control part of the pitch of the synth drone-- you and maiqi are both controlling pitch... if your sliders are close in value, the pitch will be more even-- otherwise there will be rhthmic 'beating' sounds in the synth. you will only hear changes if mckenna has the synth volume up.", 
-  'michelle': "your control is disabled at this point because I ran out of time to add mapping for you. sorry! hope you are feeling better!", 
-  'mckenna': "you control the volume of the synth drone. recommend you start at 0.0 and fade it in and out as you wish.", 
-  'yichen': "your control is disabled at this point. ran out of time to add mapping for you. Sorry!", 
+  'max': "you control track-level compression. recommend starting at 0.0.",
+  'jiahui': "your control is disabled at this point because you were not participating on Friday. Sorry!",
+  'maiqi': "you control part of the pitch of the synth drone-- you and crystal are both controlling pitch... if your sliders are close in value, the pitch will be more even-- otherwise there will be rhthmic 'beating' sounds in the synth. you will only hear changes if mckenna has the synth volume up.",
+  'crystal': "you control part of the pitch of the synth drone-- you and maiqi are both controlling pitch... if your sliders are close in value, the pitch will be more even-- otherwise there will be rhthmic 'beating' sounds in the synth. you will only hear changes if mckenna has the synth volume up.",
+  'michelle': "your control is disabled at this point because I ran out of time to add mapping for you. sorry! hope you are feeling better!",
+  'mckenna': "you control the volume of the synth drone. recommend you start at 0.0 and fade it in and out as you wish.",
+  'yichen': "your control is disabled at this point. ran out of time to add mapping for you. Sorry!",
   'bristol': "you control over-drive for the whole track. this will make the whole track sound freaky distorted like a rock-n-roll guitar solo. recommend you start at 0.0 and fade this effect in and out as you wish. it will sound cool on maiqi's singing part!"
 }
 
@@ -33,7 +33,6 @@ const Controller = props => {
   const [val, loading, error] = useObjectVal(db.ref(props.user));
 
   const changeFilter = (e)=> {
-    console.log('changeFilter', e.target.value);
     db.ref(props.user).set(e.target.value/1000);
   }
 
@@ -52,11 +51,11 @@ const Controller = props => {
         {notes[props.user]}
       </p>
     </section>
-    
+
     <a href="https://listento.audiomovers.com/sessions/?sess_id=0b0ca3b2d517f163b369cb0df170c50f#5da10000c0d43b52" target="_blank">
       Live Audio Stream
     </a>
-    
+
 
   </Layout>
   )
@@ -64,10 +63,6 @@ const Controller = props => {
 
 Controller.getInitialProps = async function(context) {
   const { user } = context.query;
-  //const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
-  //const show = await res.json();
-  //
-  console.log(`getInitialProps says: ${user}`);
   return { user };
 };
 
